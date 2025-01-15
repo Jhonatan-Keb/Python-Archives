@@ -40,16 +40,20 @@ class Personaje:
         #return self.vida <= 0
 
     def dañar(self, enemigo):
-        return self.fuerza - enemigo.defensa
+        return max(0, self.fuerza - enemigo.defensa)
     
     def atacar(self, enemigo):
         daño = self.dañar(enemigo)
-        enemigo.vida = enemigo.vida - daño
-        print(self.nombre, "ha realizado ", daño, "puntos de daño a ", enemigo.nombre)
-        print("Vida de ", enemigo.nombre, "es ", enemigo.vida)
+        enemigo.vida = max(0, enemigo.vida - daño)
+        if daño <=0:
+            print(self.nombre, "ha realizado ", daño, "puntos de daño a ", enemigo.nombre)
+        else:
+            enemigo.vida <= daño
+            print(f"{self.nombre}, Ha realizado {daño} puntos de daño a", enemigo.nombre)
+            print("Vida de ", enemigo.nombre, "es ", enemigo.vida)
 
 #Variable del constructor vacío de la clase
-mi_personaje = Personaje("Dante", 100, 3, 70, 100)
+mi_personaje = Personaje("Dante", 10000, 3, 70, 100)
 mi_personaje.imprimir_atributos()
 mi_enemigo = Personaje("Vergil", 70, 30, 70, 100)
 mi_enemigo.imprimir_atributos()
