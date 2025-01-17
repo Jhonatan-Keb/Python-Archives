@@ -53,10 +53,78 @@ class Personaje:
             print("Vida de ", enemigo.nombre, "es ", enemigo.vida)
 
 class Guerrero(Personaje):
-    pass
+    #Sobreescribir constructor
+    def __init__(self, nombre, fuerza, inteligencia, defensa, vida, espada):
+        super().__init__(nombre, fuerza, inteligencia, defensa, vida)
+        self.espada = espada
 
-tlatoani = Guerrero("Apocalipto", 50, 70, 30, 100)
+    #Sobreescribir impresion
+    def imprimir_atributos(self):
+        super().imprimir_atributos()
+        print("-Espada:",self.espada)
 
+    def elegir_arma(self):
+        opcion = int(input("Elige un arma: \n(1)Lanza de obsidiana, daño 10\n(2)Lanza de chaya, daño 5\n>>>>>> "))
+        if opcion == 1:
+            self.espada = 10
+        elif opcion == 2:
+            self.espada = 5
+        else:
+            print("Opción no válida")
+            #Regresar a dar otra opción
+            self.elegir_arma()
+
+    #Sobreescribir cálculo de daño
+    def daño(self, enemigo):
+        return self.fuerza*self.espada - enemigo.defensa
+    
+class Mago(Personaje):
+    #Sobreescribir constructor
+    def __init__(self, nombre, fuerza, inteligencia, defensa, vida, libro):
+        super().__init__(nombre, fuerza, inteligencia, defensa, vida)
+        self.libro = libro
+
+    #Sobreescribir impresion
+    def imprimir_atributos(self):
+        super().imprimir_atributos()
+        print("-Libro:",self.libro)
+
+    def elegir_arma(self):
+        opcion = int(input("Elige un libro: \n(1)Hechizos de programación, daño 10\n(2)Recetario de chaya, daño 5\n>>>>>> "))
+        if opcion == 1:
+           self.libro = 10
+        elif opcion == 2:
+            self.libro = 5
+        else:
+            print("Opción no válida")
+            #Regresar a dar otra opción
+            self.elegir_arma()
+
+    #Sobreescribir cálculo de daño
+    def daño(self, enemigo):
+        return self.inteligencia*self.libro - enemigo.defensa
+
+michael_jackson = Personaje("Michael Jackson", 20, 15, 10, 100)
+tlatoani = Guerrero("Apocalipto", 50, 70, 30, 100, 5)
+merlin = Mago("Merlin", 20, 15, 10, 100, 5)
+#tlatoani.elegir_arma()
+#merlin.elegir_arma()
+
+#Imprimir antes de la tragedia
+michael_jackson.imprimir_atributos()
+tlatoani.imprimir_atributos()
+merlin.imprimir_atributos()
+
+#Ataques masivos
+michael_jackson.atacar(tlatoani)
+tlatoani.atacar(merlin)
+merlin.atacar(michael_jackson)
+
+michael_jackson.imprimir_atributos()
+tlatoani.imprimir_atributos()
+merlin.imprimir_atributos()
+
+#print(tlatoani.espada)
 
 #Variable del constructor vacío de la clase
 
