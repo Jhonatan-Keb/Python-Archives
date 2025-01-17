@@ -52,31 +52,36 @@ class Personaje:
             print(f"{self.nombre}, Ha realizado {daño} puntos de daño a", enemigo.nombre)
             print("Vida de ", enemigo.nombre, "es ", enemigo.vida)
 
+class Guerrero(Personaje):
+    pass
+
+tlatoani = Guerrero("Apocalipto", 50, 70, 30, 100)
+
+
 #Variable del constructor vacío de la clase
-mi_personaje = Personaje("Dante", 10000, 3, 70, 100)
-mi_personaje.imprimir_atributos()
-mi_enemigo = Personaje("Vergil", 70, 30, 70, 100)
-mi_enemigo.imprimir_atributos()
-mi_personaje.atacar(mi_enemigo)
-mi_enemigo.imprimir_atributos()
+
+#mi_personaje = Personaje("Dante", 10000, 3, 70, 100)
+#mi_personaje.imprimir_atributos()
+#mi_enemigo = Personaje("Vergil", 70, 30, 70, 100)
+#mi_enemigo.imprimir_atributos()
+#mi_personaje.atacar(mi_enemigo)
+#mi_enemigo.imprimir_atributos()
+
 
 #print(mi_personaje.dañar(mi_enemigo))
 #print(mi_personaje.esta_vivo())
-'''mi_personaje.subir_nivel(10, 1, 5)
-print("____________________________")
-mi_personaje.imprimir_atributos()'''
-'''
-mi_personaje.nombre = "Jhonatan"
-mi_personaje.fuerza = 30
-mi_personaje.inteligencia = 12
-mi_personaje.defensa = 28
-mi_personaje.vida = 3
-'''
-'''
-print("El nombre del personaje es ", mi_personaje.nombre)
-print("La fuerza del personaje es ", mi_personaje.fuerza)
-print("La inteligencia del personaje es ",mi_personaje.inteligencia)
-print("La defensa del personaje es ",mi_personaje.defensa)
-print("La vida del personaje es ",mi_personaje.vida)'''
+#'''mi_personaje.subir_nivel(10, 1, 5)
+#print("____________________________")
+#mi_personaje.imprimir_atributos()'''
 
-
+#mi_personaje.nombre = "Jhonatan"
+#mi_personaje.fuerza = 30
+#mi_personaje.inteligencia = 12
+#mi_personaje.defensa = 28
+#mi_personaje.vida = 3
+#
+#print("El nombre del personaje es ", mi_personaje.nombre)
+#print("La fuerza del personaje es ", mi_personaje.fuerza)
+#print("La inteligencia del personaje es ",mi_personaje.inteligencia)
+#print("La defensa del personaje es ",mi_personaje.defensa)
+#print("La vida del personaje es ",mi_personaje.vida)'''
